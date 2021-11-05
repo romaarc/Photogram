@@ -41,26 +41,3 @@ extension GuestViewController: GuestViewDelegate {
         presenter?.signIn(email: email, password: password)
     }
 }
-
-//MARK: - SwiftUI
-#if DEBUG
-import SwiftUI
-
-struct VCPreview: PreviewProvider {
-    
-    static var previews: some View {
-        VCContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct VCContainerView: UIViewControllerRepresentable {
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<VCPreview.VCContainerView>) -> UIViewController {
-            return GuestViewController()
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<VCPreview.VCContainerView>) {
-        }
-        typealias UIViewControllerType = UIViewController
-    }
-}
-#endif
