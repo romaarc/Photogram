@@ -22,7 +22,9 @@ class GuestView: BaseView { //UIView
     private let contentView = UIView()
     
     private let logo: UIImageView = {
-        let view = UIImageView(image: #imageLiteral(resourceName: "Logo"))
+        let view = UIImageView(image: UIImage(named: "logo"))
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
         view.contentMode = .scaleAspectFill
         return view
     }()
