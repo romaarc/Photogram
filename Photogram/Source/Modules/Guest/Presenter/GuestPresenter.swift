@@ -59,11 +59,12 @@ extension GuestPresenter: GuestPresenterProtocol {
     
     func signUp(email: String, password: String) {
         fbUserService.signUp(email: email, password: password)
+        self.navigator.navigate(to: .home)
     }
     
     func signIn(email: String, password: String) {
         fbUserService.signIn(email: email, password: password)
+        self.navigator.navigate(to: .home)
     }
-    
     
 }

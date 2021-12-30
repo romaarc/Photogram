@@ -12,7 +12,7 @@ class GuestNavigator: Navigator {
     var resolver: Resolver!
 
     enum Destination {
-        case someDestination
+        case home
     }
   
     internal weak var sourceViewController: UIViewController?
@@ -24,18 +24,23 @@ class GuestNavigator: Navigator {
 
     // MARK: - Navigator
     func navigate(to destination: GuestNavigator.Destination) {
-        if let destinationViewController = makeViewController(for: destination) {
-            if let navVC = sourceViewController?.navigationController {
-                navVC.pushViewController(destinationViewController, animated: true)
-            }
+        if let destinationVC = makeViewController(for: destination) {
+            let navigation = UINavigationController(rootViewController: destinationVC)
+            navigation.modalPresentationStyle = .fullScreen
+            navigation.navigationBar.tintColor = .white
+            navigation.navigationBar.barTintColor = .SLBlackTwo
+            navigation.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+            sourceViewController?.present(navigation, animated: true)
         }
     }
     
     // MARK: - Private
     internal func makeViewController(for destination: Destination) -> UIViewController? {
         switch destination {
-        case .someDestination:
-            //return resolver.resolve(SomeViewType.self) as? SomeViewController
+        case .home:
+            if let vc = resolver.resolve(HomeViewProtocol.self) as? HomeViewController {
+                 return vc
+             }
             return nil
         }
     }

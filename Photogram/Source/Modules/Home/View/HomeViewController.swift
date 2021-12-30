@@ -22,7 +22,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         (view as? HomeView)?.prepareView()
         setupNavigationBar()
-        //presenter?.viewIsReady()
+        presenter?.viewisReady()
     }
     
     // MARK: - Private

@@ -22,7 +22,7 @@ final class FBPostProvider: FBPostProviderProtocol {
     
     func getCollection(completion: @escaping ([Post], Error?) -> Void) {
         db.collection(collectionName)
-            //.order(by: Post.Fields.createdAt.rawValue, descending: true)
+            .order(by: Post.Fields.createdAt.rawValue, descending: true)
             .getDocuments { snapshot, error in
                 guard nil == error else { completion([], error!); return }
                 guard let snapshot = snapshot else { completion([], nil); return }

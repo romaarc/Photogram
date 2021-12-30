@@ -29,9 +29,10 @@ final class PostCell: BaseTableViewCell {
     
     private var imgView: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFill
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
         view.clipsToBounds = true
+        view.layer.masksToBounds = true
         view.layer.cornerRadius = 4
         return view
     }()

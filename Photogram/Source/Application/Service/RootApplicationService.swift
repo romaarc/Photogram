@@ -27,6 +27,7 @@ final class RootApplicationService {
     
     public func reloadStartScreen(completion: @escaping (_ T: UIViewController?) -> Void) {
         DispatchQueue.main.async {
+            //FBUserService().signOut()
             if let currentUser = FBUserService.currentUser {
                 if currentUser.isGuest ||
                 FBUserService.isFirstLaunch {
