@@ -12,7 +12,7 @@
 
 # Детали реализации
 ## Deployment Target
-iOS 13
+iOS 14.5
 ## Архитектура приложения
 **DI (Swinject) + MVP + Navigator + RxSwift for some UI + Services (Firebase)**<br>
 ## UI
