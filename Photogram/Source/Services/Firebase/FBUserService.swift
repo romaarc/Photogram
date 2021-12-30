@@ -43,7 +43,6 @@ final class FBUserService: FBUserServiceProtocol {
     }
     //MARK: - RxSwift variables
     private(set) var trigger: PublishSubject<(AuthStatus, Error?)> = PublishSubject<(AuthStatus, Error?)>()
-    
     //MARK: - Firebase sign methods
     func signIn(email: String, password: String) {
         fbAuth.signIn(withEmail: email, password: password) { [weak self] (authResult, error) in
@@ -84,5 +83,4 @@ final class FBUserService: FBUserServiceProtocol {
             debugPrint("Error signing out: %@", error.localizedDescription)
         }
     }
-    
 }

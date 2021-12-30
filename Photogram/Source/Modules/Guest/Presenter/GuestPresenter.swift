@@ -28,19 +28,11 @@ class GuestPresenter {
             case .guest:
                 print("🥶 guest")
             case .authorized:
-                // iOS13 or later
-                if #available(iOS 13.0, *) {
-                    let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
-                    let rootAppService = RootApplicationService()
-                    rootAppService.reloadStartScreen { vc in
-                        sceneDelegate.window!.rootViewController = vc
-                    }
-                }
+                self.navigator.navigate(to: .home)
             }
         
         })
         .disposed(by: disposeBag)
-
     }
     
     private func handle(error: Error) {
@@ -59,12 +51,9 @@ extension GuestPresenter: GuestPresenterProtocol {
     
     func signUp(email: String, password: String) {
         fbUserService.signUp(email: email, password: password)
-        self.navigator.navigate(to: .home)
     }
     
     func signIn(email: String, password: String) {
         fbUserService.signIn(email: email, password: password)
-        self.navigator.navigate(to: .home)
     }
-    
 }
