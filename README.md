@@ -14,6 +14,6 @@
 ## Deployment Target
 iOS 14.5
 ## Архитектура приложения
-**DI (Swinject) + MVP + Navigator + RxSwift for some UI + Services (Firebase)**<br>
+**DI (Swinject) + MVP + Navigator + RxSwift + Services (Firebase)**<br>
 ## UI
 **UIKit without Storyboard and Xibs, only layout with code**<br>
